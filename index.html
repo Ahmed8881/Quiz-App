@@ -1,38 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App</title>
-    <link rel="stylesheet" href="./style/style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Study App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
     <div class="container">
-      <div id="login-section" class="section">
-        <h1>QuizMaster</h1>
-        <p class="subtitle">Your Personal Study Assistant</p>
-        <div class="form-container">
-          <input type="text" id="username" placeholder="Username" required />
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-          <button id="login-btn">Login</button>
-          <p>Don't have an account? <span id="register-link">Register</span></p>
+        <div id="login-section" class="section">
+            <h1>QuizMaster</h1>
+            <p class="subtitle">Your Personal Study Assistant</p>
+            <div class="form-container">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button id="login-btn">Login</button>
+                <p>Don't have an account? <span id="register-link">Register</span></p>
+            </div>
         </div>
-      </div>
-    </div>
-    <div id="register-section" class="section hidden">
-        <h1>Create Account</h1>
-        <div class="form-container">
-            <input type="text" id="new-username" placeholder="Choose Username" required>
-            <input type="password" id="new-password" placeholder="Choose Password" required>
-            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
-            <button id="register-btn">Register</button>
-            <p>Already have an account? <span id="login-link">Login</span></p>
+
+        <div id="register-section" class="section hidden">
+            <h1>Create Account</h1>
+            <div class="form-container">
+                <input type="text" id="new-username" placeholder="Choose Username" required>
+                <input type="password" id="new-password" placeholder="Choose Password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+                <button id="register-btn">Register</button>
+                <p>Already have an account? <span id="login-link">Login</span></p>
+            </div>
+        </div>
+
+        <div id="topics-section" class="section hidden">
+            <h1>Choose a Topic</h1>
+            <div class="user-info">
+                <span id="user-display"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+            <div class="topics-container">
+                <div class="topic-card" data-topic="math">
+                    <h3>Mathematics</h3>
+                    <p>Test your knowledge of basic math concepts</p>
+                    <div class="progress-bar">
+                        <div class="progress" id="math-progress"></div>
+                    </div>
+                </div>
+                <div class="topic-card" data-topic="science">
+                    <h3>Science</h3>
+                    <p>Quiz yourself on fundamental science principles</p>
+                    <div class="progress-bar">
+                        <div class="progress" id="science-progress"></div>
+                    </div>
+                </div>
+                <div class="topic-card" data-topic="history">
+                    <h3>History</h3>
+                    <p>Challenge your understanding of historical events</p>
+                    <div class="progress-bar">
+                        <div class="progress" id="history-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="quiz-section" class="section hidden">
+            <div class="quiz-header">
+                <h2 id="topic-title">Topic</h2>
+                <div class="quiz-info">
+                    <span id="question-counter">Question 1/10</span>
+                    <span id="timer">00:00</span>
+                </div>
+            </div>
+            <div class="quiz-content">
+                <p id="question-text">Question text goes here?</p>
+                <div class="options-container">
+                    <div class="option" data-index="0">
+                        <span class="option-letter">A</span>
+                        <span class="option-text">Option 1</span>
+                    </div>
+                    <div class="option" data-index="1">
+                        <span class="option-letter">B</span>
+                        <span class="option-text">Option 2</span>
+                    </div>
+                    <div class="option" data-index="2">
+                        <span class="option-letter">C</span>
+                        <span class="option-text">Option 3</span>
+                    </div>
+                    <div class="option" data-index="3">
+                        <span class="option-letter">D</span>
+                        <span class="option-text">Option 4</span>
+                    </div>
+                </div>
+            </div>
+            <button id="next-btn" disabled>Next Question</button>
+            <button id="quit-quiz" class="secondary-btn">Quit Quiz</button>
+        </div>
+
+        <div id="results-section" class="section hidden">
+            <h1>Quiz Results</h1>
+            <div class="results-container">
+                <div class="score-container">
+                    <div class="score-circle">
+                        <span id="score-percentage">85%</span>
+                    </div>
+                    <p>You scored <span id="correct-answers">8</span>/<span id="total-questions">10</span></p>
+                </div>
+                <div class="time-taken">
+                    <p>Time taken: <span id="time-spent">03:24</span></p>
+                </div>
+                <div class="buttons-container">
+                    <button id="review-btn">Review Answers</button>
+                    <button id="return-topics">Return to Topics</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="review-section" class="section hidden">
+            <h1>Review Answers</h1>
+            <div class="review-container" id="review-container">
+                <!-- Review items will be inserted here dynamically -->
+            </div>
+            <button id="back-to-results">Back to Results</button>
         </div>
     </div>
-  </body>
+
+    <script src="./js/main.js"></script>
+</body>
 </html>
