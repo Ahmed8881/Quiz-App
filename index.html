@@ -120,6 +120,208 @@
             </div>
             <button id="back-to-results">Back to Results</button>
         </div>
+<div id="dashboard-section" class="section hidden">
+    <h1>Your Performance Dashboard</h1>
+    <div class="dashboard-header">
+        <div class="user-info">
+            <span id="dashboard-user-display"></span>
+            <span id="user-since">Member since: <span id="join-date">Jan 2023</span></span>
+        </div>
+        <div class="dashboard-actions">
+            <button id="download-report-btn" class="action-btn">
+                <span class="icon">📊</span> Download Report
+            </button>
+            <button id="return-from-dashboard-btn" class="action-btn secondary">
+                <span class="icon">🏠</span> Home
+            </button>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <!-- Overview statistics -->
+        <div class="dashboard-card summary-card">
+            <h3>Overview</h3>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <span class="stat-value" id="total-quizzes">12</span>
+                    <span class="stat-label">Quizzes Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="avg-score">78%</span>
+                    <span class="stat-label">Average Score</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="total-time">2h 34m</span>
+                    <span class="stat-label">Total Time Spent</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="questions-answered">60</span>
+                    <span class="stat-label">Questions Answered</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress by topic card -->
+        <div class="dashboard-card">
+            <h3>Progress by Topic</h3>
+            <div class="topic-progress-container">
+                <div class="topic-progress-item">
+                    <div class="topic-progress-label">Mathematics</div>
+                    <div class="dashboard-progress-bar">
+                        <div class="dashboard-progress" id="dash-math-progress" style="width: 65%">65%</div>
+                    </div>
+                </div>
+                <div class="topic-progress-item">
+                    <div class="topic-progress-label">Science</div>
+                    <div class="dashboard-progress-bar">
+                        <div class="dashboard-progress" id="dash-science-progress" style="width: 78%">78%</div>
+                    </div>
+                </div>
+                <div class="topic-progress-item">
+                    <div class="topic-progress-label">History</div>
+                    <div class="dashboard-progress-bar">
+                        <div class="dashboard-progress" id="dash-history-progress" style="width: 42%">42%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card chart-card">
+            <h3>Performance Trends</h3>
+            <div class="chart-container">
+                <canvas id="performance-chart"></canvas>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Recent Activity</h3>
+            <div class="activity-list" id="activity-list">
+                <!-- Activity items will be inserted here dynamically -->
+                <div class="activity-item">
+                    <span class="activity-icon">📝</span>
+                    <div class="activity-details">
+                        <span class="activity-title">Completed Mathematics Quiz</span>
+                        <span class="activity-time">Today, 10:32 AM</span>
+                        <span class="activity-score">Score: 80%</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-icon">📝</span>
+                    <div class="activity-details">
+                        <span class="activity-title">Completed Science Quiz</span>
+                        <span class="activity-time">Yesterday, 4:15 PM</span>
+                        <span class="activity-score">Score: 75%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Strengths & Weaknesses</h3>
+            <div class="strengths-weaknesses-container">
+                <div class="strength-section">
+                    <h4>Strengths</h4>
+                    <ul class="sw-list" id="strengths-list">
+                        <li>Mathematical Equations</li>
+                        <li>Chemistry Concepts</li>
+                    </ul>
+                </div>
+                <div class="weakness-section">
+                    <h4>Areas to Improve</h4>
+                    <ul class="sw-list" id="weaknesses-list">
+                        <li>Historical Dates</li>
+                        <li>Physics Problems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Recommended Next Steps</h3>
+            <div class="recommendations-container" id="recommendations-container">
+                <div class="recommendation-item">
+                    <span class="recommendation-icon">🔍</span>
+                    <div class="recommendation-content">
+                        <span class="recommendation-title">Review Historical Events</span>
+                        <span class="recommendation-desc">Focus on the timeline of major historical events to improve your score.</span>
+                    </div>
+                </div>
+                <div class="recommendation-item">
+                    <span class="recommendation-icon">🎯</span>
+                    <div class="recommendation-content">
+                        <span class="recommendation-title">Practice Science Quiz</span>
+                        <span class="recommendation-desc">You're close to mastering this topic! A few more quizzes should get you there.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="report-preview-section" class="section hidden">
+    <div class="report-header">
+        <h1>Performance Report</h1>
+        <div class="report-actions">
+            <button id="download-pdf-btn" class="action-btn">Download PDF</button>
+            <button id="close-preview-btn" class="action-btn secondary">Close Preview</button>
+        </div>
+    </div>
+    <div class="report-container" id="report-content">
+        <div class="report-user-info">
+            <h2 id="report-username">John Doe</h2>
+            <p>Report generated: <span id="report-date">March 22, 2025</span></p>
+        </div>
+        
+        <div class="report-section">
+            <h3>Overall Performance</h3>
+            <div class="report-stats-grid">
+                <div class="report-stat">
+                    <span class="report-stat-value" id="report-quizzes">12</span>
+                    <span class="report-stat-label">Total Quizzes</span>
+                </div>
+                <div class="report-stat">
+                    <span class="report-stat-value" id="report-avg-score">78%</span>
+                    <span class="report-stat-label">Average Score</span>
+                </div>
+                <div class="report-stat">
+                    <span class="report-stat-value" id="report-questions">60</span>
+                    <span class="report-stat-label">Questions Answered</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="report-section">
+            <h3>Performance by Topic</h3>
+            <div class="report-topics-container" id="report-topics">
+                <!-- Topic performance will be added here -->
+            </div>
+        </div>
+        
+        <div class="report-section">
+            <h3>Recent Quiz Results</h3>
+            <table class="report-table" id="report-recent-results">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Topic</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Recent quiz results will be added here -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="report-section">
+            <h3>Recommendations</h3>
+            <ul class="report-recommendations" id="report-recommendations">
+                <!-- Recommendations will be added here -->
+            </ul>
+        </div>
+    </div>
+</div>
     </div>
 
     <script src="./js/main.js"></script>
